@@ -133,6 +133,9 @@ app.get('/api/exercise/log', (req, res) => {
     } else {
       if (exercise.length > 0) {
         User.findById(exercise['0'].userId, (err, user) => {
+          if (err) {
+            console.log(err)
+          };
           let totalCount = 0;
           let logArr = [];
           let fromObj = new Date(fromDate);
